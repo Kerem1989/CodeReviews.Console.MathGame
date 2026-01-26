@@ -1,3 +1,5 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿
+using Kerem.MathGame;
 
-Console.WriteLine("Hello, World!");
+UserMenu userMenu = new UserMenu();
+userMenu.ShowMenu();
