@@ -4,7 +4,13 @@
     {
         private int score;
 
-        private decimal gameLength;
+        private int gameLength;
+        
+        public Game(int score, int gameLength)
+        {
+            this.score = score;
+            this.gameLength = gameLength;
+        }
 
         public int Score
         {
@@ -12,7 +18,7 @@
             set => score = value;
         }
 
-        public decimal GameLength
+        public int GameLength
         {
             get => gameLength;
             set => gameLength = value;
