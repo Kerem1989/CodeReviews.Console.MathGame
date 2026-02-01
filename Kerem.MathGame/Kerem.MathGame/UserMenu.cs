@@ -1,4 +1,6 @@
-﻿namespace Kerem.MathGame ;
+﻿using System.Diagnostics;
+
+namespace Kerem.MathGame ;
 
     public class UserMenu
     {
@@ -8,6 +10,7 @@
         private static List<GameHistory> _gameHistories = new List<GameHistory>();
         private static readonly GameHistoryService gameHistoryService = new GameHistoryService();
         private static readonly GameRules gameRules = new GameRules();
+        private static readonly Stopwatch stopwatch = new Stopwatch();
         bool runProgram = true;
         
         public void ShowMenu()
@@ -21,6 +24,7 @@
             
             while (runProgram)
             {
+                stopwatch.Reset();
                 Console.WriteLine("Menu:");
                 Console.WriteLine("1. Start New Game");
                 Console.WriteLine("2. View Game History");
@@ -28,13 +32,13 @@
                 Console.WriteLine("4. Exit");
                 Console.Write("Please select an option (1-4): ");
                 
-                int choice = Convert.ToInt32(Console.ReadLine());
-
+                int choice = int.TryParse(Console.ReadLine(), out choice) ? choice : 0;
                 
                 switch (choice)
                 {
                     case 1:
                     {
+                        stopwatch.Start();
                         rounds = game.GameLength;
                         score = game.Score;
                         while (rounds > 0)
@@ -44,7 +48,7 @@
                             Console.WriteLine("2. Subtraction");
                             Console.WriteLine("3. Multiplication");
                             Console.WriteLine("4. Division");
-                            int operation = Convert.ToInt32(Console.ReadLine());
+                            int operation = int.TryParse(Console.ReadLine(), out operation) ? operation : 0;
                             switch (operation)
                             {
                                 case 1:
@@ -75,10 +79,17 @@
                             }
                         }
                         Console.WriteLine($"Game over! Your final score is {score}");
+                        stopwatch.Stop();
+                        TimeSpan ts = stopwatch.Elapsed;
+                        string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+                            ts.Hours, ts.Minutes, ts.Seconds,
+                            ts.Milliseconds / 10);
+                        Console.WriteLine($"Elapsed time: {elapsedTime}");
                         _gameHistories.Add(new GameHistory
                         {
                             PlayerName = player.Name,
-                            Score = score
+                            Score = score,
+                            ElapsedTime = elapsedTime
                         });
                         break;
                     }

@@ -1,11 +1,13 @@
-﻿namespace Kerem.MathGame ;
+﻿
+namespace Kerem.MathGame ;
 
     public class Game
     {
         private int score;
 
         private int gameLength;
-        
+
+
         public Game(int score, int gameLength)
         {
             this.score = score;

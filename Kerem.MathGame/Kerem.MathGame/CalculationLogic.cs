@@ -4,98 +4,59 @@
     {
         private static Random random = new Random();
         
-        public bool AdditionGameEasy()
+        public bool AdditionGameNormal()
         {
             Console.WriteLine("Welcome to the addition game on easy level!");
             int number1 = random.Next(100);
             int number2 = random.Next(100);
             Console.WriteLine($"What is {number1} + {number2} ?");
-            int playerAnswer = Convert.ToInt32(Console.ReadLine());
+            int playerAnswer = int.TryParse(Console.ReadLine(), out playerAnswer) ? playerAnswer : 0;
             int correctAnswer = number1 + number2;
             return playerAnswer == correctAnswer;
         }
 
-        public bool AdditionGameMedium()
-        {
-            Console.WriteLine("Welcome to the addition game on medium level!");
-            int number1 = random.Next(100);
-            int number2 = random.Next(100);
-            int number3 = random.Next(100);
-            Console.WriteLine($"What is {number1} + {number2} + {number3} ?");
-            int playerAnswer = Convert.ToInt32(Console.ReadLine());
-            int correctAnswer = number1 + number2;
-            return playerAnswer == correctAnswer;
-        }
-        
         public bool AdditionGameHard()
         {
             Console.WriteLine("Welcome to the addition game on hard level!");
             int number1 = random.Next(100);
             int number2 = random.Next(100);
             int number3 = random.Next(100);
-            int number4 = random.Next(100);
-            Console.WriteLine($"What is {number1} + {number2} + {number3} + {number4} ?");
-            int playerAnswer = Convert.ToInt32(Console.ReadLine());
-            int correctAnswer = number1 + number2;
+            Console.WriteLine($"What is {number1} + {number2} + {number3} ?");
+            int playerAnswer = int.TryParse(Console.ReadLine(), out playerAnswer) ? playerAnswer : 0;
+            int correctAnswer = number1 + number2 + number3;
             return playerAnswer == correctAnswer;
         }
-
-        public bool SubtractionGameEasy()
+        public bool SubtractionGameNormal()
         {
             Console.WriteLine("Welcome to the subtraction game on easy level!");
             int number1 = random.Next(100);
             int number2 = random.Next(100);
             Console.WriteLine($"What is {number1} - {number2} ?");
-            int playerAnswer = Convert.ToInt32(Console.ReadLine());
+            int playerAnswer = int.TryParse(Console.ReadLine(), out playerAnswer) ? playerAnswer : 0;
             int correctAnswer = number1 - number2;
             return playerAnswer == correctAnswer;
         }
         
-        public bool SubtractionGameMedium()
-        {
-            Console.WriteLine("Welcome to the subtraction game on medium level!");
-            int number1 = random.Next(100);
-            int number2 = random.Next(100);
-            int number3 = random.Next(100);
-            Console.WriteLine($"What is {number1} - {number2} - {number3} ?");
-            int playerAnswer = Convert.ToInt32(Console.ReadLine());
-            int correctAnswer = number1 - number2 - number3;
-            return playerAnswer == correctAnswer;
-        }
-
         public bool SubtractionGameHard()
         {
             Console.WriteLine("Welcome to the subtraction game on hard level!");
             int number1 = random.Next(100);
             int number2 = random.Next(100);
             int number3 = random.Next(100);
-            int number4 = random.Next(100);
-            Console.WriteLine($"What is {number1} - {number2} - {number3} - {number4} ?");
-            int playerAnswer = Convert.ToInt32(Console.ReadLine());
-            int correctAnswer = number1 - number2 - number3 - number4;
+            Console.WriteLine($"What is {number1} - {number2} - {number3} ?");
+            int playerAnswer = int.TryParse(Console.ReadLine(), out playerAnswer) ? playerAnswer : 0;
+            int correctAnswer = number1 - number2 - number3;
             return playerAnswer == correctAnswer;
         }
         
-        public bool MultiplicationGameEasy()
+        public bool MultiplicationGameNormal()
         {
             Console.WriteLine("Welcome to the multiplication game on easy level!");
             int number1 = random.Next(10);
             int number2 = random.Next(10);
             Console.WriteLine($"What is {number1} * {number2} ?");
-            int playerAnswer = Convert.ToInt32(Console.ReadLine());
+            int playerAnswer = int.TryParse(Console.ReadLine(), out playerAnswer) ? playerAnswer : 0;
             int correctAnswer = number1 * number2;
-            return playerAnswer == correctAnswer;
-        }
-
-        public bool MultiplicationGameMedium()
-        {
-            Console.WriteLine("Welcome to the multiplication game on medium level!");
-            int number1 = random.Next(10);
-            int number2 = random.Next(10);
-            int number3 = random.Next(10);
-            Console.WriteLine($"What is {number1} * {number2} * {number3} ?");
-            int playerAnswer = Convert.ToInt32(Console.ReadLine());
-            int correctAnswer = number1 * number2 * number3;
             return playerAnswer == correctAnswer;
         }
 
@@ -105,14 +66,13 @@
             int number1 = random.Next(10);
             int number2 = random.Next(10);
             int number3 = random.Next(10);
-            int number4 = random.Next(10);
-            Console.WriteLine($"What is {number1} * {number2} * {number3} * {number4} ?");
-            int playerAnswer = Convert.ToInt32(Console.ReadLine());
-            int correctAnswer = number1 * number2 * number3 * number4;
+            Console.WriteLine($"What is {number1} * {number2} * {number3} ?");
+            int playerAnswer = int.TryParse(Console.ReadLine(), out playerAnswer) ? playerAnswer : 0;
+            int correctAnswer = number1 * number2 * number3;
             return playerAnswer == correctAnswer;
         }
 
-        public bool DivisionGameEasy()
+        public bool DivisionGameNormal()
         {
             Console.WriteLine("Welcome to the division game on easy level!");
             int number1 = random.Next(1, 100);
@@ -123,20 +83,8 @@
                 number2 = random.Next(1, 100);
             } while (number1 % number2 != 0);
             Console.WriteLine($"What is {number1} / {number2} ?");
-            int playerAnswer = Convert.ToInt32(Console.ReadLine());
+            int playerAnswer = int.TryParse(Console.ReadLine(), out playerAnswer) ? playerAnswer : 0;
             int correctAnswer = number1 / number2;
-            return playerAnswer == correctAnswer;
-        }
-
-        public bool DivisionGameMedium()
-        {
-            Console.WriteLine("Welcome to the division game on medium level!");
-            int number1 = random.Next(1, 100);
-            int number2 = random.Next(1, 100);
-            int number3 = random.Next(1, 100);
-            Console.WriteLine($"What is {number1} / {number2} / {number3} ?");
-            int playerAnswer = Convert.ToInt32(Console.ReadLine());
-            int correctAnswer = number1 / number2 / number3;
             return playerAnswer == correctAnswer;
         }
 
@@ -145,12 +93,22 @@
             Console.WriteLine("Welcome to the division game on hard level!");
             int number1 = random.Next(1, 100);
             int number2 = random.Next(1, 100);
+            do
+            {
+                number1 = random.Next(1, 100);
+                number2 = random.Next(1, 100);
+            } while (number1 % number2 != 0);
+            int result;
             int number3 = random.Next(1, 100);
-            int number4 = random.Next(1, 100);
-            Console.WriteLine($"What is {number1} / {number2} / {number3} / {number4} ?");
-            int playerAnswer = Convert.ToInt32(Console.ReadLine());
-            int correctAnswer = number1 / number2 / number3 / number4;
+            do
+            {
+                number3 = random.Next(1, 100);
+                result = number1 / number2;
+            } while (result % number3 != 0);
+            Console.WriteLine($"What is ({number1} / {number2}) / {number3} ?");
+            int playerAnswer = int.TryParse(Console.ReadLine(), out playerAnswer) ? playerAnswer : 0;
+            int correctAnswer = (number1 / number2 )/ number3;
             return playerAnswer == correctAnswer;
         }
-
+        
     }

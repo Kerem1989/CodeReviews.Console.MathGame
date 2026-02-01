@@ -6,7 +6,7 @@
         {
             foreach (var gameHistory in gameHistories)
             {
-                Console.WriteLine($"{gameHistory.PlayerName} - {gameHistory.Score}");
+                Console.WriteLine($"The player {gameHistory.PlayerName} scored {gameHistory.Score} points and it took {gameHistory.ElapsedTime} seconds.");
             }
         }
     }
